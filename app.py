@@ -1,16 +1,3 @@
-# 🤖 RPAVault Smart Job Poster Generator (Keyword Detection + Dynamic Themes)
-## 🎯 Answer
-This is your **final, smart version** of the RPAVault Job Post Generator.  
-It now **automatically detects keywords** like "Remote", "Internship", "Hiring", etc.,  
-adds relevant **icons + titles**, and uses **random color themes + gradients + logo branding**.  
-
-Perfect for **daily automation-ready visuals** across Instagram, YouTube Shorts & LinkedIn.
-
----
-
-# 💻 Full Streamlit Code  
-**File:** `app.py`
-```python
 import streamlit as st
 from PIL import Image, ImageDraw, ImageFont
 import random, io, textwrap, os, re
