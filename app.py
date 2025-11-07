@@ -62,11 +62,31 @@ if st.button("🎨 Generate Poster"):
         st.stop()
 
     # --- PICK RANDOM THEME + BACKGROUND ---
+        # --- PICK RANDOM THEME + BACKGROUND ---
     theme = random.choice(themes)
     keyword = random.choice(unsplash_keywords)
-    unsplash_url = f"https://source.unsplash.com/1080x1350/?{keyword}"  # Instagram portrait size
-    bg_response = requests.get(unsplash_url)
-    bg = Image.open(io.BytesIO(bg_response.content)).convert("RGBA")
+
+    # Try up to 3 times to get a valid image
+    bg = None
+    for attempt in range(3):
+        unsplash_url = f"https://source.unsplash.com/1080x1350/?{keyword}"
+        bg_response = requests.get(unsplash_url, timeout=10)
+        content_type = bg_response.headers.get("Content-Type", "")
+        if "image" in content_type:
+            try:
+                bg = Image.open(io.BytesIO(bg_response.content)).convert("RGBA")
+                break
+            except Exception:
+                bg = None
+        # pick another keyword if failed
+        keyword = random.choice(unsplash_keywords)
+
+    # fallback if Unsplash fails completely
+    if bg is None:
+        st.warning("⚠️ Unable to fetch Unsplash image, using fallback background.")
+        fallback_url = "https://raw.githubusercontent.com/<your-github-username>/rpavault-job-generator/main/default_bg.jpg"
+        fallback = requests.get(fallback_url)
+        bg = Image.open(io.BytesIO(fallback.content)).convert("RGBA")
 
     # --- ADD GRADIENT OVERLAY ---
     gradient = Image.new("RGBA", bg.size, (0, 0, 0, 0))
