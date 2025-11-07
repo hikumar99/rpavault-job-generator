@@ -1,7 +1,7 @@
 # 🤖 RPAVault Smart Job Poster Generator (Keyword Detection + Dynamic Themes)
 ## 🎯 Answer
 This is your **final, smart version** of the RPAVault Job Post Generator.  
-It now **automatically detects keywords** like “Remote”, “Internship”, “Hiring”, etc.,  
+It now **automatically detects keywords** like "Remote", "Internship", "Hiring", etc.,  
 adds relevant **icons + titles**, and uses **random color themes + gradients + logo branding**.  
 
 Perfect for **daily automation-ready visuals** across Instagram, YouTube Shorts & LinkedIn.
@@ -57,7 +57,7 @@ themes = [
 keyword_styles = [
     {"pattern": r"\bremote\b", "icon": "🌍", "label": "Remote Role"},
     {"pattern": r"\bintern(ship)?\b", "icon": "🎓", "label": "Internship Opportunity"},
-    {"pattern": r"\bhiring\b", "icon": "💼", "label": "We’re Hiring"},
+    {"pattern": r"\bhiring\b", "icon": "💼", "label": "We're Hiring"},
     {"pattern": r"\bcontract\b", "icon": "📄", "label": "Contract Position"},
     {"pattern": r"\bpart[- ]?time\b", "icon": "🕒", "label": "Part-Time Role"},
     {"pattern": r"\bfull[- ]?time\b", "icon": "⏰", "label": "Full-Time Role"},
