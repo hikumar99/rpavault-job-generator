@@ -84,9 +84,10 @@ if st.button("🎨 Generate Smart Poster"):
 
         # --- DRAW OBJECTS ---
         draw = ImageDraw.Draw(bg)
-        title_font = ImageFont.truetype("arialbd.ttf", 80)
-        body_font = ImageFont.truetype("arial.ttf", 44)
-        tag_font = ImageFont.truetype("arialbd.ttf", 50)
+        title_font = ImageFont.truetype("DejaVuSans-Bold.ttf", 80)
+        body_font = ImageFont.truetype("DejaVuSans.ttf", 44)
+        tag_font = ImageFont.truetype("DejaVuSans-Bold.ttf", 50)
+
 
         # --- HEADER BAR ---
         draw.rectangle([(0, 0), (1080, 200)], fill=theme["header"])
